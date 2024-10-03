@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
-	// out := mergeAlternately("abc", "pqr")
-	// out := gcdTryAgain("ABAB", "AB")
-	arr := []int{2, 3, 5, 1, 3}
-	kidsWithCandies(arr, 3)
-	// fmt.Println(out)
+	//mergeAlternately("abc", "pqr")
+	//gcdTryAgain("ABAB", "AB")
+	// arr := []int{2, 3, 5, 1, 3}
+	// kidsWithCandies(arr, 3)
+	out := canPlaceFlowersAgain([]int{1, 0, 0, 0, 1}, 1)
+	fmt.Println(out)
 }
 
 func mergeAlternately(word1 string, word2 string) string {
@@ -80,6 +81,36 @@ func kidsWithCandies(candies []int, extraCandies int) []bool {
 			greatest = append(greatest, false)
 		}
 	}
-	fmt.Println(greatest)
-	// return greatest
+	return greatest
+}
+
+func canPlaceFlowers(flowerbed []int, n int) bool {
+	// By not padding this it was not possible to check the previous number
+
+	for i, current := range flowerbed[:len(flowerbed)-1] {
+		if current == 1 && flowerbed[i+1] == 0 {
+			fmt.Println(i, flowerbed[i])
+			i++
+			flowerbed[i+1] = 1
+			current = flowerbed[i+1]
+			n--
+		}
+	}
+	fmt.Println(flowerbed)
+	return false
+}
+
+func canPlaceFlowersAgain(flowerbed []int, n int) bool {
+	// Space COmplexity: 0{1}
+	// TIME Complexity: 0{n}
+	// f := slices.Concat([]int{0}, flowerbed, []int{0})
+	f := append([]int{0}, flowerbed...)
+	f = append(f, 0)
+	for i := 1; i < len(f)-1; i++ {
+		if f[i-1] == 0 && f[i] == 0 && f[i+1] == 0 {
+			f[i] = 1
+			n--
+		}
+	}
+	return n <= 0
 }
