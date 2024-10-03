@@ -11,7 +11,8 @@ func main() {
 	//gcdTryAgain("ABAB", "AB")
 	// arr := []int{2, 3, 5, 1, 3}
 	// kidsWithCandies(arr, 3)
-	out := canPlaceFlowersAgain([]int{1, 0, 0, 0, 1}, 1)
+	// out := canPlaceFlowersAgain([]int{1, 0, 0, 0, 1}, 1)
+	out := removeElement([]int{0, 1, 2, 2, 3, 0, 4, 2}, 2)
 	fmt.Println(out)
 }
 
@@ -113,4 +114,18 @@ func canPlaceFlowersAgain(flowerbed []int, n int) bool {
 		}
 	}
 	return n <= 0
+}
+
+func removeElement(nums []int, val int) int {
+	// q
+	k := 0
+	for i := 0; i < len(nums); i++ {
+		// 0, 1, 2, 2, 3, 0, 4, 2 | 2
+		if nums[i] != val {
+			nums[k] = nums[i]
+			k++
+		}
+	}
+	fmt.Println(nums)
+	return k
 }
