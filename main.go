@@ -12,7 +12,8 @@ func main() {
 	// arr := []int{2, 3, 5, 1, 3}
 	// kidsWithCandies(arr, 3)
 	// out := canPlaceFlowersAgain([]int{1, 0, 0, 0, 1}, 1)
-	out := removeElement([]int{0, 1, 2, 2, 3, 0, 4, 2}, 2)
+	// out := removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
+	out := reverseVowels("IceCreAm")
 	fmt.Println(out)
 }
 
@@ -128,4 +129,41 @@ func removeElement(nums []int, val int) int {
 	}
 	fmt.Println(nums)
 	return k
+}
+
+func removeDuplicates(nums []int) int {
+	// https://gist.github.com/johnwesonga/6301924?permalink_comment_id=4722148#gistcomment-4722148
+	// By using a map I can check if I have seen the number before
+	// Time: 0(N)?
+	// Space: 0(N)
+
+	// seen := make(map[int]bool, len(nums))
+	// k := 0
+	j := 1 //using the j solution: Time 0(1)
+	// for i := 0; i < len(nums); i++ {
+	for i := 1; i < len(nums); i++ {
+		// if !seen[nums[i]] {
+		if nums[j-1] != nums[i] {
+			nums[j] = nums[i]
+			// seen[nums[i]] = true
+			j++
+		}
+	}
+	fmt.Println(nums)
+	return j
+}
+
+func reverseVowels(s string) string {
+	// IceCreAm
+	// https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/3934949/detailed-solution-in-go-o-n-time-space-complexity
+	vowels := []rune{'a', 'e', 'i', 'o', 'u'}
+	for i, v := range s {
+		fmt.Printf("%d | Here we have letter: %v\n", i, string(v))
+		for _, j := range vowels {
+			if strings.ToLower(string(v)) == string(j) {
+				fmt.Println(string(j))
+			}
+		}
+	}
+	return ""
 }
