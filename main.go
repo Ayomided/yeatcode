@@ -139,8 +139,8 @@ func removeDuplicates(nums []int) int {
 
 	// seen := make(map[int]bool, len(nums))
 	// k := 0
-	j := 1 //using the j solution: Time 0(1)
 	// for i := 0; i < len(nums); i++ {
+	j := 1 //using the j solution: Time 0(1)
 	for i := 1; i < len(nums); i++ {
 		// if !seen[nums[i]] {
 		if nums[j-1] != nums[i] {
@@ -166,4 +166,55 @@ func reverseVowels(s string) string {
 		}
 	}
 	return ""
+}
+
+func removeDuplicatesII(nums []int) int {
+	myMap := make(map[int]int)
+	count := 0
+
+	for i := 0; i < len(nums); i++ {
+		if myMap[nums[i]] < 2 {
+			myMap[nums[i]] = myMap[nums[i]] + 1
+			nums[count] = nums[i]
+			count++
+		}
+	}
+
+	return count
+}
+
+func productExceptSelf(nums []int) []int {
+	// https://www.youtube.com/watch?v=bNvIQI2wAjk
+	ans := make([]int, len(nums))
+
+	for i := range ans {
+		ans[i] = 1
+	}
+
+	leftOutput := 1
+	for i := 0; i < len(nums); i++ {
+		ans[i] = leftOutput
+		leftOutput *= nums[i]
+	}
+	rightOutput := 1
+	for i := len(nums) - 1; i >= 0; i-- {
+		ans[i] *= rightOutput
+		rightOutput *= nums[i]
+	}
+
+	return ans
+}
+
+func majorityElement(nums []int) int {
+	myMap := make(map[int]int)
+	for i := 0; i < len(nums); i++ {
+		myMap[nums[i]] = myMap[nums[i]] + 1
+	}
+	fmt.Println(myMap)
+	for i := range myMap {
+		if myMap[i] > len(nums)/2 {
+			return i
+		}
+	}
+	return 1
 }
