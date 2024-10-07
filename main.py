@@ -36,6 +36,8 @@
 # out = reverseVowels("IceCreAm")
 # print(out)
 
+
+
 class Solution:
     def reverseWords(self, s: str) -> str:
         m: list[str] = []
@@ -44,5 +46,22 @@ class Solution:
             m.append(p[i-1])
         return " ".join(m)
 
+    def rotate(self, nums: list[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        k = k % len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
+
+        # if k%2 == 0:
+        #     ans = nums[k:]+nums[:k]
+        # else:
+        #     ans = nums[k+1:]+nums[:k+1]
+
+        # nums = ans
+        print(nums)
+
 soln =  Solution()
-print(soln.reverseWords("a good   example"))
+# print(soln.reverseWords("a good   example"))
+soln.rotate([1,2,3,4,5,6,7], 3)
+soln.rotate([-1,-100,3,99], 2)

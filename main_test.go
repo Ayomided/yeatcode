@@ -63,3 +63,22 @@ func TestMajorityElement(t *testing.T) {
 		})
 	}
 }
+
+func TestRotate(nums []int, k int) {
+	tests := []struct {
+		name    string
+		numbers []int
+		k       int
+	}{
+		{
+			name:    "few number",
+			numbers: []int{1, 2, 3, 4, 5, 6, 7},
+			k:       3,
+		},
+		{
+			name:    "edge number",
+			numbers: []int{-1, -100, 3, 99},
+			k:       5,
+		},
+	}
+}

@@ -218,3 +218,27 @@ func majorityElement(nums []int) int {
 	}
 	return 1
 }
+
+func rotate(nums []int, k int) {
+	n := len(nums)
+	k = k % n // Handle cases where k is greater than n
+	if k == 0 {
+		return // No need to rotate
+	}
+
+	// Reverse helper function
+	reverse := func(start, end int) {
+		for start < end {
+			nums[start], nums[end] = nums[end], nums[start]
+			start++
+			end--
+		}
+	}
+
+	// Step 1: Reverse the entire array
+	reverse(0, n-1)
+	// Step 2: Reverse the first k elements
+	reverse(0, k-1)
+	// Step 3: Reverse the remaining elements
+	reverse(k, n-1)
+}
