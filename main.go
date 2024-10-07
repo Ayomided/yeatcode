@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"slices"
 	"strings"
 )
@@ -241,4 +242,26 @@ func rotate(nums []int, k int) {
 	reverse(0, k-1)
 	// Step 3: Reverse the remaining elements
 	reverse(k, n-1)
+}
+
+func increasingTriplet(nums []int) bool {
+	inf := math.Pow(10, 20)
+	s1 := inf
+	s2 := inf
+	for i := range nums {
+		if float64(nums[i]) > s2 {
+			return true
+		}
+		if float64(nums[i]) > s1 {
+			s2 = min(float64(nums[i]), s2)
+		}
+		s1 = min(float64(nums[i]), s1)
+	}
+	return false
+	// for i := 0; i < len(nums)-2; i++ {
+	// 	if nums[i] < nums[i+1] && nums[i+1] < nums[i+2] {
+	// 		return true
+	// 	}
+	// }
+	// return false
 }

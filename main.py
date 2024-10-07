@@ -59,6 +59,7 @@ class Solution:
         #     ans = nums[k+1:]+nums[:k+1]
 
         # nums = ans
+
         print(nums)
 
 soln =  Solution()
