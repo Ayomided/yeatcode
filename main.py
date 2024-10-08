@@ -38,6 +38,9 @@
 
 
 
+from typing import List
+
+
 class Solution:
     def reverseWords(self, s: str) -> str:
         m: list[str] = []
@@ -61,6 +64,7 @@ class Solution:
         # nums = ans
 
         print(nums)
+
 
 soln =  Solution()
 # print(soln.reverseWords("a good   example"))

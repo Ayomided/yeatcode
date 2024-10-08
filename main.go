@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"slices"
+	"strconv"
 	"strings"
 )
 
@@ -14,7 +15,9 @@ func main() {
 	// kidsWithCandies(arr, 3)
 	// out := canPlaceFlowersAgain([]int{1, 0, 0, 0, 1}, 1)
 	// out := removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
-	out := reverseVowels("IceCreAm")
+	// out := reverseVowels("IceCreAm")
+	// fmt.Println(out)
+	out := compress([]byte{'a', 'a', 'b', 'b', 'c', 'c', 'c'})
 	fmt.Println(out)
 }
 
@@ -264,4 +267,49 @@ func increasingTriplet(nums []int) bool {
 	// 	}
 	// }
 	// return false
+}
+
+func compress(chars []byte) int {
+	writePos := 0
+	readPos := 0
+
+	for readPos < len(chars) {
+		currentChar := chars[readPos]
+
+		count := 0
+		for readPos < len(chars) && chars[readPos] == currentChar {
+			readPos++
+			count++
+		}
+
+		chars[writePos] = currentChar
+		writePos++
+
+		if count > 1 {
+			countStr := strconv.Itoa(count)
+
+			for i := 0; i < len(countStr); i++ {
+				chars[writePos] = countStr[i]
+				writePos++
+			}
+		}
+	}
+
+	return writePos
+}
+
+func maxProfit(prices []int) int {
+	l, r := 0, 1
+	maxProfit := 0
+
+	for r < len(prices) {
+		if prices[l] < prices[r] {
+			profit := prices[r] - prices[l]
+			maxProfit = max(maxProfit, profit)
+		} else {
+			l = r
+		}
+		r += 1
+	}
+	return maxProfit
 }
