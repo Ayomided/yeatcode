@@ -38,9 +38,6 @@
 
 
 
-from typing import List
-
-
 class Solution:
     def reverseWords(self, s: str) -> str:
         m: list[str] = []
@@ -64,9 +61,15 @@ class Solution:
         # nums = ans
 
         print(nums)
+    def moveZeroes(self, nums: list[int]) -> None:
+        l = 0
+        for r in range(len(nums)):
+            if nums[r]:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+        print(nums)
 
 
 soln =  Solution()
 # print(soln.reverseWords("a good   example"))
-soln.rotate([1,2,3,4,5,6,7], 3)
-soln.rotate([-1,-100,3,99], 2)
+soln.moveZeroes([0,1,0,3,12])
