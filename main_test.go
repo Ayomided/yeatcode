@@ -100,33 +100,64 @@ import (
 // 	}
 // }
 
-func TestCompress(t *testing.T) {
+// func TestCompress(t *testing.T) {
+// 	tests := []struct {
+// 		name     string
+// 		chars    []byte
+// 		expected int
+// 	}{
+// 		{
+// 			name:     "few number",
+// 			chars:    []byte{'a', 'a', 'b', 'b', 'c', 'c', 'c'},
+// 			expected: 6,
+// 		},
+// 		{
+// 			name:     "edge number",
+// 			chars:    []byte{'a'},
+// 			expected: 1,
+// 		},
+// 		{
+// 			name:     "more number",
+// 			chars:    []byte{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'},
+// 			expected: 4,
+// 		},
+// 	}
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			got := compress(tt.chars)
+// 			if got != tt.expected {
+// 				t.Errorf("majorityElement(%v) = %v, want %v", tt.chars, got, tt.expected)
+// 			}
+// 		})
+// 	}
+// }
+//
+
+func TestIsSubsequence(t *testing.T) {
 	tests := []struct {
 		name     string
-		chars    []byte
-		expected int
+		s        string
+		t        string
+		expected bool
 	}{
 		{
 			name:     "few number",
-			chars:    []byte{'a', 'a', 'b', 'b', 'c', 'c', 'c'},
-			expected: 6,
+			s:        "abc",
+			t:        "ahbgdc",
+			expected: true,
 		},
 		{
 			name:     "edge number",
-			chars:    []byte{'a'},
-			expected: 1,
-		},
-		{
-			name:     "more number",
-			chars:    []byte{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'},
-			expected: 4,
+			s:        "axc",
+			t:        "ahbgdc",
+			expected: false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := compress(tt.chars)
+			got := isSubsequence(tt.s, tt.t)
 			if got != tt.expected {
-				t.Errorf("majorityElement(%v) = %v, want %v", tt.chars, got, tt.expected)
+				t.Errorf("majorityElement(%v, %v) = %v, want %v", tt.s, tt.t, got, tt.expected)
 			}
 		})
 	}

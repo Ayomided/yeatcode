@@ -61,6 +61,7 @@ class Solution:
         # nums = ans
 
         print(nums)
+
     def moveZeroes(self, nums: list[int]) -> None:
         l = 0
         for r in range(len(nums)):
@@ -69,7 +70,23 @@ class Solution:
                 l += 1
         print(nums)
 
+    def maxProfit(self, prices: list[int]) -> int:
+        profit = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices [i - 1]:
+                profit += (prices[i] - prices [i - 1])
+        return profit
+
+    def canJump(self, nums: list[int]) -> bool:
+        end = len(nums) - 1
+
+        for i in range(len(nums) - 1, -1, -1):
+            if i + nums[i] >= end:
+                end = i
+
+        return True if end == 0 else False
+
 
 soln =  Solution()
-# print(soln.reverseWords("a good   example"))
-soln.moveZeroes([0,1,0,3,12])
+out = soln.canJump([2,3,1,1,4])
+print(out)

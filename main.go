@@ -335,3 +335,35 @@ func maxProfitII(prices []int) int {
 
 	return maxProfit
 }
+
+func canJump(nums []int) bool {
+	end := len(nums) - 1
+
+	for i := len(nums) - 1; i > -1; i-- {
+		if i+nums[i] >= end {
+			end = i
+		}
+	}
+
+	if end == 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func isSubsequence(s string, t string) bool {
+	i, j := 0, 0
+
+	for i < len(s) && j < len(t) {
+		if s[i] == t[j] {
+			i++
+		}
+		j++
+	}
+	if i == len(s) {
+		return true
+	} else {
+		return false
+	}
+}
