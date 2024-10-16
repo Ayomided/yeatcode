@@ -1,0 +1,98 @@
+{
+  "page": 1,
+  "per_page": 10,
+  "total": 1951,
+  "total_pages": 196,
+  "data": [
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupH",
+      "team1": "Barcelona",
+      "team2": "AC Milan",
+      "team1goals": "2",
+      "team2goals": "2"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupG",
+      "team1": "APOEL Nikosia",
+      "team2": "Zenit St. Petersburg",
+      "team1goals": "2",
+      "team2goals": "1"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupF",
+      "team1": "Borussia Dortmund",
+      "team2": "Arsenal",
+      "team1goals": "1",
+      "team2goals": "1"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupH",
+      "team1": "Viktoria Plzen",
+      "team2": "BATE Borisov",
+      "team1goals": "1",
+      "team2goals": "1"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupE",
+      "team1": "Chelsea",
+      "team2": "Bayer Leverkusen",
+      "team1goals": "2",
+      "team2goals": "0"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupG",
+      "team1": "FC Porto",
+      "team2": "Shakhtar Donetsk",
+      "team1goals": "2",
+      "team2goals": "1"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupE",
+      "team1": "KRC Genk",
+      "team2": "Valencia CF",
+      "team1goals": "0",
+      "team2goals": "0"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupF",
+      "team1": "Olympiacos",
+      "team2": "Olympique Marseille",
+      "team1goals": "0",
+      "team2goals": "1"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupD",
+      "team1": "AFC Ajax",
+      "team2": "Olympique Lyon",
+      "team1goals": "0",
+      "team2goals": "0"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "year": 2011,
+      "round": "GroupC",
+      "team1": "Basel",
+      "team2": "Otelul Galati",
+      "team1goals": "2",
+      "team2goals": "1"
+    }
+  ]
+}

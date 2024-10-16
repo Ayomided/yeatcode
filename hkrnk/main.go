@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"log"
 	"math"
 	"slices"
 	"strconv"
@@ -114,13 +115,24 @@ func diagonalDifference(arr [][]int32) int32 {
 }
 
 func main() {
-	matrix := [][]int32{
-		{1, 2, 3},
-		{4, 5, 6},
-		{9, 8, 9},
+	draws, err := GetNumDraws(2011)
+	if err != nil {
+		log.Fatal(err)
 	}
-	out := diagonalDifference(matrix)
-	fmt.Println(out)
+	fmt.Printf("Number of draws in 2011: %d\n", draws)
+
+	goals, err := GetWinnerTotalGoals("UEFA Champions League", 2011)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Total goals for the winner of UEFA Champions League 2011: %d\n", goals)
+	// matrix := [][]int32{
+	// 	{1, 2, 3},
+	// 	{4, 5, 6},
+	// 	{9, 8, 9},
+	// }
+	// out := diagonalDifference(matrix)
+	// fmt.Println(out)
 }
 
 func readLine(reader *bufio.Reader) string {
